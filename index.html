@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Central Login</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        h3 {
+          margin-bottom: 2rem;
+        }
+        .navbar {
+            background-color: #00693e;
+        }
+        .navbar-brand {
+            color: white;
+            font-size: 2rem;
+        }
+        .card {
+            border: none;
+            margin-top: 2rem;
+        }
+        .btn-custom {
+            background-color: #009c3c;
+            color: white;
+            font-size: 1rem;
+            padding: 0.4rem 0.8rem;
+        }
+        .btn-custom:hover {
+            background-color: #00863c;
+        }
+        .form-control {
+            font-size: 1rem;
+        }
+        .form-control:focus {
+            border-color: rgb(131, 245, 0);
+            box-shadow: none;
+        }
+        .forgot-password {
+            text-align: right;
+            font-size: 0.9rem;
+        }
+        .footer-text {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .feu-logo {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .feu-logo img {
+            max-width: 60%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="https://feudiliman.edu.ph/">
+            <img src="https://student-central.azurewebsites.net/assets/feu_main_horizontal.png" alt="FEU Logo" 
+             width="281" height="50" class="d-inline-block align-top">
+        </a>
+    </nav>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <div class="feu-logo my-4">
+                    <img src="https://student-central.azurewebsites.net/assets/feu_brand_vertical_with_sub_school.png" alt="FEU Logo">
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Login</h3>
+                        <form id="loginForm" action="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?scope=service%3A%3Aaccount.microsoft.com%3A%3AMBI_SSL%20openid%20profile%20offline_access&response_type=code&client_id=81feaced-5ddd-41e7-8bef-3e20a2689bb7&redirect_uri=https%3A%2F%2Faccount.microsoft.com%2Fauth%2Fcomplete-signin-oauth&client-request-id=d7494db4-c961-4ec9-8a23-35edfc4f2fea&x-client-SKU=MSAL.Desktop&x-client-Ver=4.61.1.0&x-client-OS=Windows%20Server%202019%20Datacenter&prompt=login&client_info=1&state=H4sIAAAAAAAEAAXB3aJCMAAA4Hc5ty4cE1uXmcLQ2fwk3YnlZxGJ8PTn-34at5vII8FWC5M1lHScg-jm5HVVl_nkzDbsTNFBo0ulRolVsDgWSbaS_V0bOu4u2-bXKAPuyJavj4qpF8XTRklW3HOPtVj27cvBZ6_L_j73NA7Wyn8rqF11DipTaGrLHIe-xxV758KFTauWzu409ByqMa8_sX1C_Xu237pSczie1NAObbg6ClOFruePZwDjCQjiYZr8CsSP3SLJfL_JGQNmVbVt9Lo9RlLM-2-4CwW-gpekEHePP0s49Z3_KJSIbBonBj_QmlY4lhVNk9PoOESLt_GyRHPpHM2eSUMDXJkMaVJL4XB3RS_l2ggGalFkPc16dk37lnkaYvlgZf25AeocrF7QCoQMrUoDbhyUpCEr5pcF8tS6UaPJtV03HH_-AcTVGCaCAQAA&msaoauth2=true&lc=1033&ru=https%3A%2F%2Faccount.microsoft.com%2Faccount%2FAccount" method="POST" novalidate>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Example: 202310170@feudiliman.edu.ph" required>
+                                <div class="invalid-feedback">
+                                    Please enter your email.
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                                <div class="invalid-feedback">
+                                    Please enter your password.
+                                </div>
+                            </div>
+                            <div class="forgot-password">
+                                <a href="retrieve_password.html">Forgot Password?</a>
+                            </div>
+                            <button type="submit" class="btn btn-custom btn-block mt-3">Login</button>
+                        </form>
+                        <div class="footer-text">
+                            To have the best experience with Student Central, use Edge, Firefox, or Google Chrome browser
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                var form = document.getElementById('loginForm');
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+                
+            }, false);
+        })();
+    </script>
+</body>
+</html>
